@@ -1,5 +1,6 @@
 const express = require("express");
 const fs = require("fs/promises");
+const { json } = require("stream/consumers");
 const app = express();
 const PORT = 2800;
 
@@ -10,6 +11,9 @@ const PORT = 2800;
  * Exemplo:
  * GET /saudacao/Joao?hora=14 → Boa tarde, João!
  */
+
+app.use(express.json());
+
 
 app.use((req, res) => {
   res.status(404).json({ message: "Pagina não encontrada" });
