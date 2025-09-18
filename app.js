@@ -17,9 +17,7 @@ app.get("/imc", (req, res) => {
   const peso = parseFloat(req.query.peso);
   const altura = parseFloat(req.query.altura);
   if (!peso || !altura) {
-    return res
-      .status(400)
-      .json({ error: "Por favor, forneça peso e altura válidos." });
+    return res.status(400).json({ error: "Por favor, forneça peso e altura válidos." });
   }
   const imc = peso / (altura * altura);
   let classificacao = "";
