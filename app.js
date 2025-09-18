@@ -19,6 +19,8 @@ app.get("/calculadora", async (req, res) => {
           return res.status(400).json({ error: "Parâmetros insuficientes" });
       } else if (isNaN(n1) || isNaN(n2)) {
           return res.status(400).json({ error: "n1 e n2 devem ser números" });
+// fim dos tratamentos de erro
+
       } if (operacao === "soma") {
           const resultado = Number(n1) + Number(n2);
           return res.json({ resultado });
