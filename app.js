@@ -12,12 +12,13 @@ const PORT = 2800;
 
 app.use(express.json());
 
-app.get("/ano/:ano", (req, res) => {
-  const { ano } = req.params;
-  const anoNum = parseInt(ano, 10);
+app.get("/ano/:year", (req, res) => {
+  const { year } = req.params;
+  const anoNum = parseInt(year, 10);
   if (isNaN(anoNum)) {
     return res.status(400).json({ message: "Pararmetro inválido" });
-  }
+  } // Um ano é bissexto se for divisível por 400 OU
+    // se for divisível por 4 E NÃO for divisível por 100
   const isBissexto = (anoNum % 4 === 0 && anoNum % 100 !== 0) || (anoNum % 400 === 0);
   if (isBissexto) {
     return res.status(200).json({ message: `O ano ${anoNum} é bissexto.` });
