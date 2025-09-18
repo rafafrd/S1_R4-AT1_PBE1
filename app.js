@@ -15,6 +15,9 @@ Resultado da soma: 15
  */
 
 app.get("/soma/:numUm/:numDois", (req, res) => {
+  if (isNaN(req.params.numUm) || isNaN(req.params.numDois)) {
+    return res.status(400).send("Os parâmetros devem ser números válidos.");
+  }
   const numUm = Number(req.params.numUm);
   const numDois = Number(req.params.numDois);
   const resultado = numUm + numDois;
