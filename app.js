@@ -1,6 +1,5 @@
 const express = require("express");
 const fs = require("fs/promises");
-const { json } = require("stream/consumers");
 const app = express();
 const PORT = 2800;
 
