@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.get("/ano/:year", (req, res) => {
   const { year } = req.params;
-  const anoNum = parseInt(year, 10);
+  const anoNum = parseInt(year);
   if (isNaN(anoNum)) {
     return res.status(400).json({ message: "Pararmetro inválido" });
   } // Um ano é bissexto se for divisível por 400 OU
